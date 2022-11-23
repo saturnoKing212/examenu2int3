@@ -1,0 +1,34 @@
+import json
+
+
+contactos ={
+    ("manuel","desarrollo web","manuel@ejemplo.com",),
+    ("lorena","festora de proyectos","lorena@ejemplo.com",),
+    ("javier","analista de datos","javier@ejemplo.com",),
+    ("martha","experta en python","martha@ejemplo.com",)
+
+}
+
+res=[]
+for cal in contactos:
+    c={
+          "nombre":cal[0],
+          "funcion":cal[1],
+          "correo":cal[2]
+
+    }
+    res.append(c.copy())
+    c.clear()
+cont = json.dumps(res)
+try:
+    jsonFile=open("contact.json","w")
+    jsonFile.write(cont)
+except:
+  print("ocurrio un error")
+finally:
+    jsonFile.close()
+
+
+print(cont)
+
+
